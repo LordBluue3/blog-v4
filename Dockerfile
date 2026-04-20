@@ -20,8 +20,9 @@ COPY . /var/www/html
 # criar .env a partir do env
 RUN cp /var/www/html/env /var/www/html/.env
 
-# apontar pro /public
-RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
+# apontar pro /public e definir ServerName
+RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g' /etc/apache2/sites-available/000-default.conf && \
+    echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # configurar AllowOverride para .htaccess funcionar
 RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
