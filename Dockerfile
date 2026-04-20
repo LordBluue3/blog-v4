@@ -3,6 +3,8 @@ FROM php:8.2-apache
 # dependências do intl
 RUN apt-get update && apt-get install -y \
     libicu-dev \
+    git \
+    unzip \
     && docker-php-ext-install intl
 
 # outras extensões
@@ -16,6 +18,12 @@ RUN a2enmod rewrite
 
 # copiar projeto
 COPY . /var/www/html
+
+# instalar composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# instalar dependências
+RUN cd /var/www/html && composer install --no-dev --optimize-autoloader
 
 # criar .env a partir do env
 RUN cp /var/www/html/env /var/www/html/.env
