@@ -423,8 +423,8 @@
 
         <div class="about">
             <p>
-                Olá, Eu me chamo Mikael Oliveira tenho <?= date('Y') - 2003 ?> anos e sou <a href="http://localhost:8080/blog/minha-experiencia-na-faculdade" target="_blank">bacharel em Ciência da Computação</a>
-                e seja bem vindo à <a href="http://localhost:8080/blog/minha-casa-na-internet" target="_blank">minha casa na internet</a>.
+                Olá, Eu me chamo Mikael Oliveira tenho <?= date('Y') - 2003 ?> anos e sou <a href="<?= base_url('blog/minha-experiencia-na-faculdade') ?>" target="_blank">bacharel em Ciência da Computação</a>
+                e seja bem vindo à <a href="<?= base_url('blog/minha-casa-na-internet') ?>" target="_blank">minha casa na internet</a>.
             </p>
             <p style="margin-top: 20px;">
                 Trabalho com programação a <?= date('Y') - 2022 ?> anos e já passei por vários projetos alguns bem legais usando tecnologias novas como (PHP 8 E Laravel 12) e com padrões de desenvolvimento bem estruturados e outros bem bucha com técnologia legada com (Codeigniter 3 e PHP 7).
